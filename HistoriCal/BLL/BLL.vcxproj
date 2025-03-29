@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2df93b63-ee5d-4d2e-941b-b73b32099bb1}</ProjectGuid>
-    <RootNamespace>BAL</RootNamespace>
+    <ProjectGuid>{6b3ccb44-004d-41a5-b427-9e810c84b00d}</ProjectGuid>
+    <RootNamespace>BLL</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>BLL</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -128,6 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\register.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\pch.h" />
+    <ClInclude Include="include\register.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
