@@ -1,4 +1,5 @@
 #include "../include/pch.h"
+#include "../../BLL/include/register.h"
 
 void registerUser() {
 	system("CLS");

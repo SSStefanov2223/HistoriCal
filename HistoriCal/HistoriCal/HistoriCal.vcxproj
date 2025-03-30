@@ -136,6 +136,14 @@
     <ClInclude Include="include\pch.h" />
     <ClInclude Include="include\register.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.vcxproj">
+      <Project>{6b3ccb44-004d-41a5-b427-9e810c84b00d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.vcxproj">
+      <Project>{ed9278bd-e460-4314-a394-5393683c005d}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

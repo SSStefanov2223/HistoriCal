@@ -1,5 +1,5 @@
 #include "../include/pch.h"
-
+#include "../include/register.h"
 
 bool checkPassword(std::string password)
 {
