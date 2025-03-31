@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\App.cpp" />
+    <ClCompile Include="src\logIn.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\register.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\App.h" />
+    <ClInclude Include="include\logIn.h" />
     <ClInclude Include="include\pch.h" />
     <ClInclude Include="include\register.h" />
   </ItemGroup>

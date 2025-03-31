@@ -128,10 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\json.hpp" />
+    <ClInclude Include="include\logIn.h" />
     <ClInclude Include="include\pch.h" />
+    <ClInclude Include="include\register.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\DAL.cpp" />
+    <ClCompile Include="src\register.cpp" />
+    <ClCompile Include="src\logIn.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
