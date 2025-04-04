@@ -30,6 +30,12 @@
     <ClCompile Include="src\dashboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\historicalCalendar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\viewDates.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h">
@@ -47,8 +53,15 @@
     <ClInclude Include="include\dashboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\historicalCalendar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\viewDates.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="users.json" />
+    <None Include="dates.json" />
   </ItemGroup>
 </Project>

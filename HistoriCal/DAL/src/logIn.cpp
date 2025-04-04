@@ -18,7 +18,7 @@ bool authenticateUser(const std::string& username, const std::string& password) 
         return false;
     }
 
-    if (users[username]["password"] == password) {
+    else if (users[username]["password"] == password) {
         std::cout << "Login successful! Welcome, " << username << "!\n";
         return true;
     }

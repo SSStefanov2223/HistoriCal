@@ -129,10 +129,12 @@
   <ItemGroup>
     <ClInclude Include="include\json.hpp" />
     <ClInclude Include="include\logIn.h" />
+    <ClInclude Include="include\manageDates.h" />
     <ClInclude Include="include\pch.h" />
     <ClInclude Include="include\register.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\manageDates.cpp" />
     <ClCompile Include="src\register.cpp" />
     <ClCompile Include="src\logIn.cpp" />
   </ItemGroup>

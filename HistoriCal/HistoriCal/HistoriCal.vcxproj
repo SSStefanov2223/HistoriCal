@@ -129,16 +129,20 @@
   <ItemGroup>
     <ClCompile Include="src\App.cpp" />
     <ClCompile Include="src\dashboard.cpp" />
+    <ClCompile Include="src\historicalCalendar.cpp" />
     <ClCompile Include="src\logIn.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\register.cpp" />
+    <ClCompile Include="src\viewDates.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\App.h" />
     <ClInclude Include="include\dashboard.h" />
+    <ClInclude Include="include\historicalCalendar.h" />
     <ClInclude Include="include\logIn.h" />
     <ClInclude Include="include\pch.h" />
     <ClInclude Include="include\register.h" />
+    <ClInclude Include="include\viewDates.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.vcxproj">
@@ -149,6 +153,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="dates.json" />
     <None Include="users.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

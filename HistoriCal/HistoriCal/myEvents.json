@@ -1,0 +1,24 @@
+{
+    "events": [
+        {
+            "category2": "Nigeria",
+            "date": "2000-10-12",
+            "description": "Idki"
+        },
+        {
+            "category2": "Bulgaria",
+            "date": "2008-10-28",
+            "description": "I was born"
+        },
+        {
+            "category2": "Bulgaria",
+            "date": "2008-10-10",
+            "description": "Idk"
+        },
+        {
+            "category2": "Bulgaria",
+            "date": "2008-10-28",
+            "description": "I was born"
+        }
+    ]
+}
