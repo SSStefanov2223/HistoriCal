@@ -1,6 +1,8 @@
 #include "../include/pch.h"
 #include "../include/register.h"
+#include "../../DAL/include/logIn.h"
 #include "../include/logIn.h"
+#include "../include/dashboard.h"
 
 void App() {
 	char choice;

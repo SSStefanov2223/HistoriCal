@@ -27,6 +27,9 @@
     <ClCompile Include="src\logIn.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\dashboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\pch.h">
@@ -41,5 +44,11 @@
     <ClInclude Include="include\logIn.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\dashboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="users.json" />
   </ItemGroup>
 </Project>

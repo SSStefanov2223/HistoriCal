@@ -128,12 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\App.cpp" />
+    <ClCompile Include="src\dashboard.cpp" />
     <ClCompile Include="src\logIn.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\register.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\App.h" />
+    <ClInclude Include="include\dashboard.h" />
     <ClInclude Include="include\logIn.h" />
     <ClInclude Include="include\pch.h" />
     <ClInclude Include="include\register.h" />
@@ -145,6 +147,9 @@
     <ProjectReference Include="..\DAL\DAL.vcxproj">
       <Project>{ed9278bd-e460-4314-a394-5393683c005d}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="users.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
