@@ -2,6 +2,6 @@
 
 namespace credentials {
 	std::string username;
-	std::string password;
 	std::string email;
+	std::string password;
 }

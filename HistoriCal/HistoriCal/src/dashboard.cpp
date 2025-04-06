@@ -18,7 +18,7 @@ void dashboardPage()
 			viewDates();
 			break;
 		case 2:
-			std::cout << "You have selected to manage your account!" << std::endl;
+			manageProfiles();
 			break;
 		case 3:
 			system("CLS");

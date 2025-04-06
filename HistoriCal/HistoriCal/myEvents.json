@@ -17,6 +17,12 @@
             "date": "2000-12-12",
             "description": "123",
             "user": "SIMEON"
+        },
+        {
+            "category2": "Jamaica",
+            "date": "2008-08-17",
+            "description": "Sashko was born",
+            "user": "Sashko"
         }
     ]
 }

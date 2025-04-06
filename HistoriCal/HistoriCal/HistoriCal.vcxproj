@@ -132,6 +132,7 @@
     <ClCompile Include="src\historicalCalendar.cpp" />
     <ClCompile Include="src\logIn.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\manageProfile.cpp" />
     <ClCompile Include="src\register.cpp" />
     <ClCompile Include="src\viewDates.cpp" />
   </ItemGroup>
@@ -140,6 +141,7 @@
     <ClInclude Include="include\dashboard.h" />
     <ClInclude Include="include\historicalCalendar.h" />
     <ClInclude Include="include\logIn.h" />
+    <ClInclude Include="include\manageProfile.h" />
     <ClInclude Include="include\pch.h" />
     <ClInclude Include="include\register.h" />
     <ClInclude Include="include\viewDates.h" />

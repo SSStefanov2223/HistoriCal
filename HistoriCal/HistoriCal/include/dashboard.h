@@ -4,6 +4,7 @@
 #include "../../DAL/include/logIn.h"
 #include "historicalCalendar.h"
 #include "viewDates.h"
+#include "manageProfile.h"
 #include "App.h"
 
 void dashboardPage();
