@@ -1,7 +1,4 @@
-#include "../include/pch.h"
-#include "../../DAL/include/register.h"
-#include "../../BLL/include/register.h"
-#include "../include/json.hpp"
+#include "../include/register.h"
 
 using json = nlohmann::json;
 

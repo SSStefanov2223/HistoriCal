@@ -1,29 +1,26 @@
-#include "../include/pch.h"
-#include "../../DAL/include/logIn.h"
-#include "../include/dashboard.h"
+#include "../include/logIn.h"
 
 void loginUser() {
     system("CLS");
 
-    std::string username, password;
     std::cout << "Welcome back! Log in here!" << std::endl;
 
     std::cout << "Enter your username: ";
-    std::cin >> username;
+    std::cin >> credentials::username;
 
     std::cout << "Enter your password: ";
-    std::cin >> password;
+    std::cin >> credentials::password;
 
-    while (!authenticateUser(username, password)) {
+    while (!authenticateUser(credentials::username, credentials::password)) {
         std::cout << "Enter your username: ";
-        std::cin >> username;
+        std::cin >> credentials::username;
 
         std::cout << "Enter your password: ";
-        std::cin >> password;
+        std::cin >> credentials::password;
     }
     
-    if(authenticateUser(username, password)) 
+    if(authenticateUser(credentials::username, credentials::password))
     {
-		dashboardPage(username);
+		dashboardPage();
 	}
 }

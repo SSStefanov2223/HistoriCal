@@ -35,7 +35,7 @@ void saveEventsToNewJson(EventNode* head) {
     std::ifstream file("myEvents.json");
     json dates;
     if (file) {
-        file >> dates;  
+        file >> dates;
         file.close();
     }
     else {
@@ -45,6 +45,7 @@ void saveEventsToNewJson(EventNode* head) {
     EventNode* current = head;
     while (current != nullptr) {
         json event = {
+            {"user", credentials::username},
             {"date", current->date},
             {"description", current->description},
             {"category2", current->country}
@@ -62,6 +63,9 @@ void saveEventsToNewJson(EventNode* head) {
     outFile << std::setw(4) << dates;
     outFile.close();
 
-    std::cout << "Events saved!" << std::endl;
-    manageDates();
+    std::cout << "Press Enter to continue!" << std::endl;
+
+    if (_getch() == 13) {
+        manageDates();
+    }
 }

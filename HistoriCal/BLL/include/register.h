@@ -1,3 +1,7 @@
+#pragma once
+#include "../../BLL/include/credentials.h"
+#include "../include/pch.h"
+
 
 bool checkPassword(std::string password);
 

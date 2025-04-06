@@ -1,44 +1,37 @@
-#include "../include/pch.h"
-#include "../../BLL/include/register.h"
-#include "../include/logIn.h"
-#include "../../DAL/include/register.h"
+#include "../include/register.h"
 
 void registerUser() {
     system("CLS");
 
-    std::string username, email, password;
-    char isKeyPressed;
-
 	std::cout << "Let's create an account!" << std::endl;
     std::cout << "Enter your username: ";
-    std::cin >> username;
+    std::cin >> credentials::username;
     
-    while (!checkUsername(username) || userExists(username)) {
+    while (!checkUsername(credentials::username) || userExists(credentials::username)) {
         std::cout << "Invalid or taken username. Please enter a valid username: ";
-        std::cin >> username;
+        std::cin >> credentials::username;
     }
 
     std::cout << "Enter your email: ";
-    std::cin >> email;
+    std::cin >> credentials::email;
     
-    while (!checkEmail(email)) {
+    while (!checkEmail(credentials::email)) {
         std::cout << "Invalid email. Please enter a valid email: ";
-        std::cin >> email;
+        std::cin >> credentials::email;
     }
 
     std::cout << "Enter your password: ";
-    std::cin >> password;
+    std::cin >> credentials::password;
     
-    while (!checkPassword(password)) {
+    while (!checkPassword(credentials::password)) {
         std::cout << "Invalid password. Please enter a valid password: ";
-        std::cin >> password;
+        std::cin >> credentials::password;
     }
 
-    saveUser(username, email, password); 
+    saveUser(credentials::username, credentials::email, credentials::password);
     
     std::cout << "Registration successful!" << std::endl;
     std::cout << "Press any key to log in..." << std::endl;
-	std::cin >> isKeyPressed;
 
-    if(isKeyPressed > 0) loginUser();
+    if(_getch() > 0) loginUser();
 }

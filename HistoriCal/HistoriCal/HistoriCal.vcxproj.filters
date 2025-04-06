@@ -63,5 +63,6 @@
   <ItemGroup>
     <None Include="users.json" />
     <None Include="dates.json" />
+    <None Include="myEvents.json" />
   </ItemGroup>
 </Project>

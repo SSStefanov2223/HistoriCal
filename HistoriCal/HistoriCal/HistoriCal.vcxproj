@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dates.json" />
+    <None Include="myEvents.json" />
     <None Include="users.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

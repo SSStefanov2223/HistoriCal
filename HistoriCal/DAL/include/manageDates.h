@@ -2,6 +2,8 @@
 
 #include "pch.h"
 #include "json.hpp"
+#include "../../BLL/include/credentials.h"
+#include "../../HistoriCal/include/historicalCalendar.h"
 
 
 struct EventNode {

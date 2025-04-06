@@ -1,6 +1,4 @@
 #include "../include/historicalCalendar.h"
-#include "../../DAL/include/manageDates.h"
-#include "../include/viewDates.h"
 using json = nlohmann::json;
 
 void showDates()
@@ -36,10 +34,16 @@ void showDates()
     if (!found) {
         std::cout << "No events found for year: " << selectedYear << std::endl;
     }
+    std::cout << "Press Enter to continue!" << std::endl;
+    if (_getch() == 13) {
+        system("CLS");
+        viewDates();
+    }
 }
 
 void showByCountry()
 {
+	system("CLS");
     std::ifstream file("dates.json");
     if (!file) {
         std::cerr << "Error opening file!" << std::endl;
@@ -76,6 +80,11 @@ void showByCountry()
             found = true;
         }
     }
+	std::cout << "Press Enter to continue!" << std::endl;
+	if (_getch() == 13) {
+		system("CLS");
+		viewDates();
+	}
 
     if (!found) {
         std::cout << "No events found for country: " << selectedCountry << " in the year: " << selectedYear << std::endl;
@@ -84,8 +93,14 @@ void showByCountry()
 
 void displayEventsFromFile(const std::string& filename) {
     std::ifstream file(filename);
+
     if (!file) {
         std::cerr << "Error opening file for reading!" << std::endl;
+        return;
+    }
+
+    if (file.peek() == std::ifstream::traits_type::eof()) {
+        std::cout << "No events found (file is empty)!" << std::endl;
         return;
     }
 
@@ -98,22 +113,35 @@ void displayEventsFromFile(const std::string& filename) {
         return;
     }
 
-    std::cout << "\nEvents from " << filename << ":\n";
+    bool found = false;
     for (const auto& event : dates["events"]) {
-        std::string date = event.value("date", "Unknown Date");
-        std::string description = event.value("description", "No Description");
-        std::string country = event.value("category2", "Unknown Country");
+        if (event.value("user", "") == credentials::username) {
+            std::string date = event.value("date", "Unknown Date");
+            std::string description = event.value("description", "No Description");
+            std::string country = event.value("category2", "Unknown Country");
 
-        std::cout << "Date: " << date << std::endl;
-        std::cout << "Description: " << description << std::endl;
-        std::cout << "Country: " << country << std::endl;
-        std::cout << "---------------------------" << std::endl;
-        std::cout << std::endl;
+            std::cout << "Date: " << date << std::endl;
+            std::cout << "Description: " << description << std::endl;
+            std::cout << "Country: " << country << std::endl;
+            std::cout << "---------------------------" << std::endl;
+            found = true;
+        }
+    }
+
+    if (!found) {
+        std::cout << "No events found for user: " << credentials::username << std::endl;
+    }
+
+    std::cout << "Press Enter to continue!" << std::endl;
+    if (_getch() == 13) {
+        system("CLS");
+        viewDates();
     }
 }
 
 void manageDates()
 {
+    system("CLS");
     EventNode* head = nullptr;  
     int choice;
 
@@ -129,10 +157,12 @@ void manageDates()
 			system("CLS");
             addEventToList(head);
             saveEventsToNewJson(head);
+            viewDates();
             break;
         case 2:
             system("CLS");
             displayEventsFromFile("myEvents.json");
+            viewDates();
             break;
         case 3:
             system("CLS");
@@ -140,5 +170,10 @@ void manageDates()
             break;
     default:
         break;
+    }
+    std::cout << "Press Enter to continue!" << std::endl;
+    if (_getch() == 13) {
+        system("CLS");
+        viewDates();
     }
 }

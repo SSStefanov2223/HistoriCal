@@ -3,6 +3,9 @@
 #include "pch.h"
 #include "../../DAL/include/pch.h"
 #include "../../DAL/include/json.hpp"
+#include "../../BLL/include/credentials.h"
+#include "../../DAL/include/manageDates.h"
+#include "viewDates.h"
 
 void showDates();
 void showByCountry();
