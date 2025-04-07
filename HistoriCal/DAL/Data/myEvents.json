@@ -1,45 +1,21 @@
 {
     "events": [
         {
-            "category2": "2",
-            "date": "2000-12-12",
-            "description": "2",
-            "user": "Simeon"
-        },
-        {
-            "category2": "123",
-            "date": "2000-12-12",
-            "description": "123",
-            "user": "Simeon"
-        },
-        {
-            "category2": "123",
-            "date": "2000-12-12",
-            "description": "123",
-            "user": "SIMEON"
-        },
-        {
-            "category2": "Jamaica",
-            "date": "2008-08-17",
-            "description": "Sashko was born",
-            "user": "Sashko"
-        },
-        {
             "category2": "Bulgaria",
-            "date": "2008-10-278",
+            "date": "2008-10-28",
             "description": "Simeon was born",
-            "user": "Simeon_123"
-        },
-        {
-            "category2": "Bulgaria",
-            "date": "2008-10-2008",
-            "description": "I was born",
             "user": "Simeon_1111"
         },
         {
-            "category2": "asdj",
-            "date": "2008-12-12",
-            "description": "123",
+            "category2": "Bulgaria",
+            "date": "2008-10-28",
+            "description": "I was born",
+            "user": ""
+        },
+        {
+            "category2": "The",
+            "date": "2000-10-10",
+            "description": "Idkk",
             "user": "Simeon_1111"
         }
     ]

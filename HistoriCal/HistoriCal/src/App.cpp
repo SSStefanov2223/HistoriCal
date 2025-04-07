@@ -2,6 +2,10 @@
 
 void App() {
 	char choice;
+	std::string registerText = "[R] Register / [L] Log In";
+	const int consoleWidth = 105;
+	int registerTextSpace	 = (consoleWidth - registerText.length()) / 2;
+	std::string leadingSpacesLine1(registerTextSpace, ' ');
 	const char* logo = R"(
  __          __  _                            _           _    _ _     _             _  _____      _ _ 
  \ \        / / | |                          | |         | |  | (_)   | |           (_)/ ____|    | | |
@@ -11,10 +15,8 @@ void App() {
      \/  \/ \___|_|\___\___/|_| |_| |_|\___|  \__\___( ) |_|  |_|_|___/\__\___/|_|  |_|\_____\__,_|_(_)
                                                      |/                                                
     )";
-	
 	std::cout << logo << std::endl;
-	std::cout << "[R] Register / ";
-	std::cout << "[L] Log In" << std::endl;
+	std::cout << leadingSpacesLine1 << registerText << std::endl;
 	std::cin >> choice;
 
 	if (tolower(choice) == 'r') registerUser();

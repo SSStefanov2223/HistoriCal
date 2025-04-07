@@ -2,13 +2,19 @@
 
 void dashboardPage()
 {
+	std::string menu = R"(
+=============================
+|[1] View historical dates! |
+|---------------------------|
+|[2]  Manage your account!  |
+|---------------------------|
+|[3]        Log Out	    |
+=============================
+)";
 	system("CLS");
 	int choice;
 	std::cout << "Welcome, " << credentials::username << "!" << std::endl;
-	std::cout << "1. View historical dates!" << std::endl;
-	std::cout << "2. Manage your account!" << std::endl;
-	std::cout << "3. Log Out" << std::endl;
-	
+	std::cout << menu << std::endl;
 	std::cin >> choice;
 
 	switch(choice)

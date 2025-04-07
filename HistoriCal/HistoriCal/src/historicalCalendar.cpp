@@ -5,11 +5,6 @@ void showDates()
 {
 	std::ifstream file("../../HistoriCal/DAL/Data/dates.json");
 
-	if (!file) {
-		std::cerr << "Error opening file!" << std::endl;
-		return;
-	}
-
 	json dates;
 	file >> dates;
 	file.close();
@@ -25,9 +20,16 @@ void showDates()
         std::string description = event.value("description", "No Description");
 
         if (date.substr(0, 4) == selectedYear) {
-            std::cout << "Year: " << date << std::endl;
+
+            for (size_t i = 0; i <= date.length(); i++) std::cout << "-";
+            std::cout << "-------" << std::endl;
+            std::cout << "|Year: " << date << "|" << std::endl;
+            std::cout << "-------";
+            for (size_t i = 0; i <= date.length(); i++) std::cout << "-";
+
+            std::cout << std::endl;
             std::cout << "Description: " << description << std::endl;
-            std::cout << "---------------------------" << std::endl;
+            std::cout << "=======================================================================================================================" << std::endl;
             found = true;
         }
     }
@@ -45,10 +47,6 @@ void showByCountry()
 {
 	system("CLS");
     std::ifstream file("../../HistoriCal/DAL/Data/dates.json");
-    if (!file) {
-        std::cerr << "Error opening file!" << std::endl;
-        return;
-    }
 
     json dates;
     file >> dates;
@@ -74,9 +72,15 @@ void showByCountry()
         std::string year = date.substr(0, 4);
 
         if (country == selectedCountry && year == selectedYear) {
-            std::cout << "Date: " << date << std::endl;
+
+			for (size_t i = 0; i <= date.length(); i++) std::cout << "-";
+			std::cout << "-------" << std::endl;
+            std::cout << "|Year: " << date << "|" << std::endl;
+            std::cout << "-------";
+            for (size_t i = 0; i <= date.length(); i++) std::cout << "-";
+			std::cout << std::endl;
             std::cout << "Description: " << description << std::endl;
-            std::cout << "---------------------------" << std::endl;
+            std::cout << "=======================================================================================================================" << std::endl;
             found = true;
         }
     }
@@ -95,11 +99,6 @@ void displayEvents()
 {
     std::ifstream file("../../HistoriCal/DAL/Data/myEvents.json");
 
-    if (file.peek() == std::ifstream::traits_type::eof()) {
-        std::cout << "No events found (file is empty)!" << std::endl;
-        return;
-    }
-
     json dates;
     file >> dates;
     file.close();
@@ -116,10 +115,17 @@ void displayEvents()
             std::string description = event.value("description", "No Description");
             std::string country = event.value("category2", "Unknown Country");
 
-            std::cout << "Date: " << date << std::endl;
+            for (size_t i = 0; i <= date.length(); i++) std::cout << "-";
+            std::cout << "-------" << std::endl;
+            std::cout << "|Date: " << date << "|" << std::endl;
+            std::cout << "-------";
+            for (size_t i = 0; i <= date.length(); i++) std::cout << "-";
+            std::cout << std::endl;
             std::cout << "Description: " << description << std::endl;
+            std::cout << "------------------------" << std::endl;
             std::cout << "Country: " << country << std::endl;
-            std::cout << "---------------------------" << std::endl;
+			std::cout << "========================" << std::endl;
+            std::cout << std::endl;
             found = true;
         }
     }
@@ -137,13 +143,20 @@ void displayEvents()
 
 void manageDates()
 {
+    std::string menu = R"(
+==================
+|[1]  Add Event  |
+|----------------|
+|[2] View Events |
+|----------------|
+|[3]   Go Back   |
+==================
+)";
     system("CLS");
     EventNode* head = nullptr;  
     int choice;
-
-    std::cout << "1. Add Event\n";
-    std::cout << "2. View Events\n";
-    std::cout << "3. Go Back\n";
+	std::cout << "Welcome to the Event Management Page!" << std::endl;
+	std::cout << menu << std::endl;
     std::cin >> choice;
 
     switch (choice)

@@ -3,24 +3,32 @@
 void viewProfile() {
 	system("CLS");
 	std::cout << "====== Your Profile ======" << std::endl;
-	std::cout << "Username: " << credentials::username << std::endl;
-	std::cout << "Email:    " << credentials::email << std::endl;
-	std::cout << "Password: " << credentials::password << std::endl;
+	std::cout << "|Username: " << credentials::username << std::endl;
+	std::cout << "|Email:    " << credentials::email << std::endl;
+	std::cout << "|Password: " << credentials::password << std::endl;
 	std::cout << "==========================" << std::endl;
 
-	std::cout << "\nPress Enter to return!" << std::endl;
+	std::cout << "\nPress Enter to go back!" << std::endl;
 	if (_getch() == 13) manageProfiles();
 }
 
 void manageProfiles()
 {
+	std::string menu = R"(
+=========================
+|[1]  View your profile |
+|-----------------------|
+|[2]  Edit your profile |
+|-----------------------|
+|[3] Delete your profile|
+|-----------------------|
+|[4]      Go Back	|
+=========================
+)";
 	system("CLS");
 	int choice;
 	std::cout << "Welcome to the Profile Management Page!" << std::endl;
-	std::cout << "1. View your profile" << std::endl;
-	std::cout << "2. Edit your profile" << std::endl;
-	std::cout << "3. Delete your profile" << std::endl;
-	std::cout << "4. Go Back" << std::endl;
+	std::cout << menu << std::endl;
 	std::cin >> choice;
 	switch (choice)
 	{
