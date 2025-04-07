@@ -17,5 +17,5 @@ struct EventNode {
     }
 };
 
-void addEventToList(EventNode*& head);
-void saveEventsToNewJson(EventNode* head);
+void addEvent(EventNode*& head);
+void saveEvents(EventNode* head);

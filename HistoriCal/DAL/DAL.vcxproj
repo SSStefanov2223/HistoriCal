@@ -140,6 +140,11 @@
     <ClCompile Include="src\register.cpp" />
     <ClCompile Include="src\logIn.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\dates.json" />
+    <None Include="Data\myEvents.json" />
+    <None Include="Data\users.json" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

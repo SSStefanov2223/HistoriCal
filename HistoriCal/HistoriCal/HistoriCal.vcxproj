@@ -154,11 +154,6 @@
       <Project>{ed9278bd-e460-4314-a394-5393683c005d}</Project>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="dates.json" />
-    <None Include="myEvents.json" />
-    <None Include="users.json" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

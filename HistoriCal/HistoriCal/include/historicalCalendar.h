@@ -9,4 +9,5 @@
 
 void showDates();
 void showByCountry();
+void displayEvents();
 void manageDates();

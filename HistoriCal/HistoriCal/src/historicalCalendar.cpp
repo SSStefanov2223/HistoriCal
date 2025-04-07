@@ -3,7 +3,7 @@ using json = nlohmann::json;
 
 void showDates()
 {
-	std::ifstream file("dates.json");
+	std::ifstream file("../../HistoriCal/DAL/Data/dates.json");
 
 	if (!file) {
 		std::cerr << "Error opening file!" << std::endl;
@@ -44,7 +44,7 @@ void showDates()
 void showByCountry()
 {
 	system("CLS");
-    std::ifstream file("dates.json");
+    std::ifstream file("../../HistoriCal/DAL/Data/dates.json");
     if (!file) {
         std::cerr << "Error opening file!" << std::endl;
         return;
@@ -91,13 +91,9 @@ void showByCountry()
     }
 }
 
-void displayEventsFromFile(const std::string& filename) {
-    std::ifstream file(filename);
-
-    if (!file) {
-        std::cerr << "Error opening file for reading!" << std::endl;
-        return;
-    }
+void displayEvents() 
+{
+    std::ifstream file("../../HistoriCal/DAL/Data/myEvents.json");
 
     if (file.peek() == std::ifstream::traits_type::eof()) {
         std::cout << "No events found (file is empty)!" << std::endl;
@@ -129,13 +125,13 @@ void displayEventsFromFile(const std::string& filename) {
     }
 
     if (!found) {
-        std::cout << "No events found for user: " << credentials::username << std::endl;
+        std::cout << "No events found!" << std::endl;
     }
 
     std::cout << "Press Enter to continue!" << std::endl;
     if (_getch() == 13) {
         system("CLS");
-        viewDates();
+        manageDates();
     }
 }
 
@@ -147,21 +143,20 @@ void manageDates()
 
     std::cout << "1. Add Event\n";
     std::cout << "2. View Events\n";
-    std::cout << "3. Exit\n";
-    std::cout << "Enter your choice: ";
+    std::cout << "3. Go Back\n";
     std::cin >> choice;
 
     switch (choice)
     {
         case 1:
 			system("CLS");
-            addEventToList(head);
-            saveEventsToNewJson(head);
+            addEvent(head);
+            saveEvents(head);
             viewDates();
             break;
         case 2:
             system("CLS");
-            displayEventsFromFile("myEvents.json");
+            displayEvents();
             viewDates();
             break;
         case 3:

@@ -2,7 +2,7 @@
 #include "../../HistoriCal/include/historicalCalendar.h"
 using json = nlohmann::json;
 
-void addEventToList(EventNode*& head) {
+void addEvent(EventNode*& head) {
     std::string date, description, country;
 
     std::cout << "Enter the date of the event (YYYY-MM-DD): ";
@@ -31,8 +31,8 @@ void addEventToList(EventNode*& head) {
     std::cout << "Event added successfully!" << std::endl;
 }
 
-void saveEventsToNewJson(EventNode* head) {
-    std::ifstream file("myEvents.json");
+void saveEvents(EventNode* head) {
+    std::ifstream file("../../HistoriCal/DAL/Data/myEvents.json");
     json dates;
     if (file) {
         file >> dates;
@@ -54,11 +54,7 @@ void saveEventsToNewJson(EventNode* head) {
         current = current->next;
     }
 
-    std::ofstream outFile("myEvents.json");
-    if (!outFile) {
-        std::cerr << "Error opening file for writing!" << std::endl;
-        return;
-    }
+    std::ofstream outFile("../../HistoriCal/DAL/Data/myEvents.json");
 
     outFile << std::setw(4) << dates;
     outFile.close();

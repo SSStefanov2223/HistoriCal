@@ -66,9 +66,4 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="users.json" />
-    <None Include="dates.json" />
-    <None Include="myEvents.json" />
-  </ItemGroup>
 </Project>

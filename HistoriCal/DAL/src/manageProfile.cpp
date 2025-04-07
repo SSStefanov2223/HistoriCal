@@ -2,20 +2,11 @@
 using json = nlohmann::json;
 
 void editProfile() {
-    std::ifstream inFile("users.json");
-    if (!inFile) {
-        std::cerr << "Error opening users.json file!" << std::endl;
-        return;
-    }
+    std::ifstream inFile("../../HistoriCal/DAL/Data/users.json");
 
     json users;
     inFile >> users;
     inFile.close();
-
-    if (!users.contains(credentials::username)) {
-        std::cerr << "User not found!" << std::endl;
-        return;
-    }
 
     json& user = users[credentials::username];
 
@@ -24,80 +15,59 @@ void editProfile() {
     std::cout << "\nEnter new username (or press Enter to keep current): ";
     std::getline(std::cin, newUsername);
     if (!newUsername.empty() && newUsername != credentials::username) {
-        users.erase(credentials::username);  // Remove old username
-        users[newUsername] = user;           // Add new username with the same data
-        credentials::username = newUsername; // Update global username
+        users.erase(credentials::username);
+        users[newUsername] = user;          
+        credentials::username = newUsername; 
     }
 
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Clean the input buffer
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
 
     std::cout << std::endl;
 
-    // Get new email if provided
     std::cout << "Enter new email (or press Enter to keep current): ";
     std::getline(std::cin, newEmail);
     if (!newEmail.empty()) {
         user["email"] = newEmail;
-        credentials::email = newEmail;  // Update global email
+        credentials::email = newEmail;  
     }
 
     std::cout << std::endl;
 
-    // Get new password if provided
     std::cout << "Enter new password (or press Enter to keep current): ";
     std::getline(std::cin, newPassword);
     if (!newPassword.empty()) {
         user["password"] = newPassword;
-        credentials::password = newPassword;  // Update global password
+        credentials::password = newPassword;  
     }
 
-    // Save updated data to the JSON file
-    std::ofstream outFile("users.json");
-    if (!outFile) {
-        std::cerr << "Error opening users.json file for writing!" << std::endl;
-        return;
-    }
+    std::ofstream outFile("../../HistoriCal/DAL/Data/users.json");
 
-    outFile << users.dump(4);  // Pretty print with indentation of 4 spaces
+    outFile << users.dump(4); 
     outFile.close();
 
     std::cout << "\nProfile updated successfully!" << std::endl;
 
-    // Wait for the user to press Enter to return
-    while (_getch() != 13);  // Wait for Enter key
+    while (_getch() != 13);  
 
     system("CLS");
-    manageProfiles();  // Or any function to return to profile management
+    manageProfiles(); 
 }
 
 void deleteProfile() {
-    std::ifstream inFile("users.json");
-    if (!inFile) {
-        std::cerr << "Error opening users.json file!" << std::endl;
-        return;
-    }
+    std::ifstream inFile("../../HistoriCal/DAL/Data/users.json");
 
     json users;
     inFile >> users;
     inFile.close();
 
-    if (!users.contains(credentials::username)) {
-        std::cerr << "User not found!" << std::endl;
-        return;
-    }
-
     char confirm;
     std::cout << "Are you sure you want to delete your account? (Y/N): ";
     std::cin >> confirm;
 
-    if (tolower(confirm) == 'Y') {
+    if (tolower(confirm) == 'y') {
         users.erase(credentials::username);
 
-        std::ofstream outFile("users.json");
-        if (!outFile) {
-            std::cerr << "Error opening users.json file for writing!" << std::endl;
-            return;
-        }
+        std::ofstream outFile("../../HistoriCal/DAL/Data/users.json");
 
         outFile << users.dump(4);
         outFile.close();

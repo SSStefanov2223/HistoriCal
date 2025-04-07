@@ -3,7 +3,7 @@
 using json = nlohmann::json;
 
 bool authenticateUser(const std::string& username, const std::string& password) {
-    std::ifstream file("users.json");
+    std::ifstream file("../../HistoriCal/DAL/Data/users.json");
 
     json users;
     file >> users;

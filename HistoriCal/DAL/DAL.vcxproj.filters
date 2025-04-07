@@ -48,4 +48,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\dates.json" />
+    <None Include="Data\myEvents.json" />
+    <None Include="Data\users.json" />
+  </ItemGroup>
 </Project>
