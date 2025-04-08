@@ -121,6 +121,7 @@ void displayEvents()
             std::cout << "-------";
             for (size_t i = 0; i <= date.length(); i++) std::cout << "-";
             std::cout << std::endl;
+
             std::cout << "Description: " << description << std::endl;
             std::cout << "------------------------" << std::endl;
             std::cout << "Country: " << country << std::endl;
@@ -157,12 +158,13 @@ void manageDates()
     int choice;
 	std::cout << "Welcome to the Event Management Page!" << std::endl;
 	std::cout << menu << std::endl;
-    std::cin >> choice;
+    do {
+        std::cin >> choice;
 
-    switch (choice)
-    {
+        switch (choice)
+        {
         case 1:
-			system("CLS");
+            system("CLS");
             addEvent(head);
             saveEvents(head);
             viewDates();
@@ -176,10 +178,12 @@ void manageDates()
             system("CLS");
             viewDates();
             break;
-    default:
-        break;
-    }
-    std::cout << "Press Enter to continue!" << std::endl;
+        default:
+			std::cout << "Invalid choice. Please try again: ";
+			break;
+        }
+	} while (choice < 1 or choice > 3);
+    std::cout << "Pess Enter to continue!" << std::endl;
     if (_getch() == 13) {
         system("CLS");
         viewDates();

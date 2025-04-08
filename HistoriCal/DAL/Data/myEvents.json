@@ -1,22 +1,4 @@
 {
     "events": [
-        {
-            "category2": "Bulgaria",
-            "date": "2008-10-28",
-            "description": "Simeon was born",
-            "user": "Simeon_1111"
-        },
-        {
-            "category2": "Bulgaria",
-            "date": "2008-10-28",
-            "description": "I was born",
-            "user": ""
-        },
-        {
-            "category2": "The",
-            "date": "2000-10-10",
-            "description": "Idkk",
-            "user": "Simeon_1111"
-        }
     ]
 }

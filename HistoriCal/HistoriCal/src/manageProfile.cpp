@@ -29,27 +29,29 @@ void manageProfiles()
 	int choice;
 	std::cout << "Welcome to the Profile Management Page!" << std::endl;
 	std::cout << menu << std::endl;
-	std::cin >> choice;
-	switch (choice)
-	{
-	case 1:
-		system("CLS");
-		viewProfile();
-		break;
-	case 2:
-		system("CLS");
-		editProfile();
-		break;
-	case 3:
-		system("CLS");
-		deleteProfile();
-		break;
-	case 4:
-		system("CLS");
-		dashboardPage();
-		break;
-	default:
-		std::cout << "Invalid choice. Please try again." << std::endl;
-		break;
-	}
+	do {
+		std::cin >> choice;
+		switch (choice)
+		{
+		case 1:
+			system("CLS");
+			viewProfile();
+			break;
+		case 2:
+			system("CLS");
+			editProfile();
+			break;
+		case 3:
+			system("CLS");
+			deleteProfile();
+			break;
+		case 4:
+			system("CLS");
+			dashboardPage();
+			break;
+		default:
+				std::cout << "Invalid choice. Please try again: ";
+				break;
+		}
+	} while (choice < 1 or choice > 4);
 }

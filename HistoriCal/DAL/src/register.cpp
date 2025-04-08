@@ -3,7 +3,7 @@
 using json = nlohmann::json;
 
 bool userExists(const std::string& username) {
-    std::ifstream accounts("users.json");
+    std::ifstream accounts("../../HistoriCal/DAL/Data/users.json");
     if (!accounts) return false;
 
     json users;
@@ -15,7 +15,7 @@ bool userExists(const std::string& username) {
 
 void saveUser(const std::string& username, const std::string& email, const std::string& password) {
     json users;
-    std::ifstream file("users.json");
+    std::ifstream file("../../HistoriCal/DAL/Data/users.json");
 
     if (file) {  
         file >> users;
@@ -27,7 +27,7 @@ void saveUser(const std::string& username, const std::string& email, const std::
         {"password", password}
     };  
 
-    std::ofstream outFile("users.json");
+    std::ofstream outFile("../../HistoriCal/DAL/Data/users.json");
     outFile << users.dump(4);  
     outFile.close();
 }

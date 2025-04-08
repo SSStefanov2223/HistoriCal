@@ -2,7 +2,7 @@
 
 void viewDates()
 {
-	int subChoice;
+	int choice;
 	std::string menu = R"(
   Learn about historical events and create your own ones!
 ===========================================================
@@ -14,27 +14,32 @@ void viewDates()
 |---------------------------------------------------------|
 |[4]			  Go Back			  |
 ===========================================================
-Type the number of the option you want: )";
+)";
 	std::cout << menu << std::endl;
-	std::cin >> subChoice;
+	do {
+		std::cin >> choice;
 
-	switch (subChoice)
-	{
-	case 1:
-		system("CLS");
-		showDates();
-		break;
-	case 2:
-		system("CLS");
-		showByCountry();
-		break;
-	case 3:
-		system("CLS");
-		manageDates();
-		break;
-	case 4:
-		system("CLS");
-		dashboardPage();
-		break;
-	}
+		switch (choice)
+		{
+		case 1:
+			system("CLS");
+			showDates();
+			break;
+		case 2:
+			system("CLS");
+			showByCountry();
+			break;
+		case 3:
+			system("CLS");
+			manageDates();
+			break;
+		case 4:
+			system("CLS");
+			dashboardPage();
+			break;
+		default:
+			std::cout << "Invalid choice. Please try again: ";
+			break;
+		}
+	} while (choice < 1 or choice > 4);
 }

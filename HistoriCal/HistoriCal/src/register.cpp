@@ -2,6 +2,9 @@
 
 void registerUser() {
     system("CLS");
+    char ch;
+    const std::string enter = R"(Enter your password: )";
+    const std::string invalid = R"(Invalid password. Please enter a valid password: )";
 
 	std::cout << "Let's create an account!" << std::endl;
     std::cout << "Enter your username: ";
@@ -20,12 +23,35 @@ void registerUser() {
         std::cin >> credentials::email;
     }
 
-    std::cout << "Enter your password: ";
-    std::cin >> credentials::password;
+    std::cout << enter;
+    while ((ch = _getch()) != '\r') {  
+        if (ch == '\b') { 
+            if (!credentials::password.empty()) {
+                credentials::password.pop_back();
+                std::cout << "\b \b";
+            }
+        }
+            else {
+                credentials::password.push_back(ch);
+                std::cout << "*"; 
+            }
+        }
     
     while (!checkPassword(credentials::password)) {
-        std::cout << "Invalid password. Please enter a valid password: ";
-        std::cin >> credentials::password;
+        std::cout << std::endl;
+        std::cout << invalid;
+        while ((ch = _getch()) != '\r') {
+            if (ch == '\b') {
+                if (!credentials::password.empty()) {
+                    credentials::password.pop_back();
+                    std::cout << "\b \b";
+                }
+            }
+            else {
+                credentials::password.push_back(ch);
+                std::cout << "*";
+            }
+        }
     }
 
     saveUser(credentials::username, credentials::email, credentials::password);

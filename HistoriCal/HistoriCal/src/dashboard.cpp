@@ -15,10 +15,11 @@ void dashboardPage()
 	int choice;
 	std::cout << "Welcome, " << credentials::username << "!" << std::endl;
 	std::cout << menu << std::endl;
-	std::cin >> choice;
+	do {
+		std::cin >> choice;
 
-	switch(choice)
-	{
+		switch (choice)
+		{
 		case 1:
 			system("CLS");
 			viewDates();
@@ -31,7 +32,8 @@ void dashboardPage()
 			App();
 			break;
 		default:
-			std::cout << "Invalid choice. Please try again." << std::endl;
+			std::cout << "Invalid choice. Please try again: ";
 			break;
-	}
+		}
+	} while (choice < 1 or choice > 3);
 }

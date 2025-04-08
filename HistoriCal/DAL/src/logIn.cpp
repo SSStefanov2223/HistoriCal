@@ -14,8 +14,6 @@ bool authenticateUser(const std::string& username, const std::string& password) 
             credentials::username = username;
             credentials::password = password;
             credentials::email = users[username]["email"];  
-
-            std::cout << "Login successful! Welcome, " << username << "!\n";
             return true;
         }
         else {
