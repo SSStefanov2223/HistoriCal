@@ -2,13 +2,16 @@
 
 using json = nlohmann::json;
 
+// Function to authenticate a user by checking the username and password against a JSON file
 bool authenticateUser(const std::string& username, const std::string& password) {
     std::ifstream file("../../HistoriCal/DAL/Data/users.json");
 
+	// Check if the file opened successfully
     json users;
     file >> users;
     file.close();
 
+	// Check if the username exists in the JSON file
     if (users.contains(username)) {
         if (users[username]["password"] == password) {
             credentials::username = username;

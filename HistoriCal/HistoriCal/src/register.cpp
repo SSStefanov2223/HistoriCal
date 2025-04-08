@@ -10,6 +10,7 @@ void registerUser() {
     std::cout << "Enter your username: ";
     std::cin >> credentials::username;
     
+	// Check if the username is valid and not already taken
     while (!checkUsername(credentials::username) || userExists(credentials::username)) {
         std::cout << "Invalid or taken username. Please enter a valid username: ";
         std::cin >> credentials::username;
@@ -18,21 +19,22 @@ void registerUser() {
     std::cout << "Enter your email: ";
     std::cin >> credentials::email;
     
+	// Check if the email is valid
     while (!checkEmail(credentials::email)) {
         std::cout << "Invalid email. Please enter a valid email: ";
         std::cin >> credentials::email;
     }
 
     std::cout << enter;
-    while ((ch = _getch()) != '\r') {  
-        if (ch == '\b') { 
+	while ((ch = _getch()) != '\r') { // '\r' checks for Enter key  
+		if (ch == '\b') { // '\b' checks for backspace
             if (!credentials::password.empty()) {
-                credentials::password.pop_back();
+				credentials::password.pop_back(); //pop_back removes the last character
                 std::cout << "\b \b";
             }
         }
             else {
-                credentials::password.push_back(ch);
+                credentials::password.push_back(ch); //When the last character is removed, the push_back function adds a new '*' to the end of the string
                 std::cout << "*"; 
             }
         }
@@ -40,15 +42,15 @@ void registerUser() {
     while (!checkPassword(credentials::password)) {
         std::cout << std::endl;
         std::cout << invalid;
-        while ((ch = _getch()) != '\r') {
-            if (ch == '\b') {
+		while ((ch = _getch()) != '\r') { // '\r' checks for Enter key
+			if (ch == '\b') { // '\b' checks for backspace
                 if (!credentials::password.empty()) {
-                    credentials::password.pop_back();
+					credentials::password.pop_back(); //pop_back removes the last character
                     std::cout << "\b \b";
                 }
             }
             else {
-                credentials::password.push_back(ch);
+				credentials::password.push_back(ch); //When the last character is removed, the push_back function adds a new '*' to the end of the string
                 std::cout << "*";
             }
         }
@@ -56,6 +58,7 @@ void registerUser() {
 
     saveUser(credentials::username, credentials::email, credentials::password);
     
+	std::cout << std::endl;
     std::cout << "Registration successful!" << std::endl;
     std::cout << "Press any key to log in..." << std::endl;
 

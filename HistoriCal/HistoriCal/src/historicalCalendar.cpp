@@ -15,10 +15,13 @@ void showDates()
 
     bool found = false;
     std::cout << "\nHistorical Events from " << selectedYear << ":\n";
+
+	//this is a range based for loop which iterates over the events in the json file
     for (const auto& event : dates["events"]) {
         std::string date = event.value("date", "");
         std::string description = event.value("description", "No Description");
 
+		// Check if the date starts with the selected year
         if (date.substr(0, 4) == selectedYear) {
 
             for (size_t i = 0; i <= date.length(); i++) std::cout << "-";
@@ -64,6 +67,7 @@ void showByCountry()
     bool found = false;
     std::cout << "\nHistorical Events in " << selectedCountry << " for the year " << selectedYear << ":\n";
 
+	//this is a range based for loop which iterates over the events in the json file
     for (const auto& event : dates["events"]) {
         std::string country = event.value("category2", "");
         std::string description = event.value("description", "No Description");
@@ -71,6 +75,7 @@ void showByCountry()
 
         std::string year = date.substr(0, 4);
 
+		// Check if the country and year match the selected values
         if (country == selectedCountry && year == selectedYear) {
 
 			for (size_t i = 0; i <= date.length(); i++) std::cout << "-";
@@ -109,7 +114,10 @@ void displayEvents()
     }
 
     bool found = false;
+
+	//this is a range based for loop which iterates over the events in the json file
     for (const auto& event : dates["events"]) {
+		// Check if the event belongs to the logged-in user
         if (event.value("user", "") == credentials::username) {
             std::string date = event.value("date", "Unknown Date");
             std::string description = event.value("description", "No Description");
@@ -133,6 +141,11 @@ void displayEvents()
 
     if (!found) {
         std::cout << "No events found!" << std::endl;
+        std::cout << "Press Enter to continue!" << std::endl;
+        if (_getch() == 13) {
+            system("CLS");
+            manageDates();
+        }
     }
 
     std::cout << "Press Enter to continue!" << std::endl;

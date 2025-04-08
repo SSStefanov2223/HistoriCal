@@ -1,6 +1,7 @@
 #include "../include/manageProfile.h"
 using json = nlohmann::json;
 
+// Function to edit the user's profile
 void editProfile() {
     std::ifstream inFile("../../HistoriCal/DAL/Data/users.json");
 
@@ -8,6 +9,7 @@ void editProfile() {
     inFile >> users;
     inFile.close();
 
+	// Check if the user exists
     json& user = users[credentials::username];
 
     std::string newUsername, newEmail, newPassword;
@@ -20,11 +22,14 @@ void editProfile() {
         credentials::username = newUsername; 
     }
 
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+	// Prompt for new email
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear the input buffer
 
     std::cout << std::endl;
 
     std::cout << "Enter new email (or press Enter to keep current): ";
+    
+	// Clear the input buffer before reading the new email
     std::getline(std::cin, newEmail);
     if (!newEmail.empty()) {
         user["email"] = newEmail;
@@ -34,6 +39,8 @@ void editProfile() {
     std::cout << std::endl;
 
     std::cout << "Enter new password (or press Enter to keep current): ";
+
+	// Clear the input buffer before reading the new password
     std::getline(std::cin, newPassword);
     if (!newPassword.empty()) {
         user["password"] = newPassword;
@@ -53,6 +60,7 @@ void editProfile() {
     manageProfiles(); 
 }
 
+// Function to delete the user's profile
 void deleteProfile() {
     std::ifstream inFile("../../HistoriCal/DAL/Data/users.json");
 
@@ -74,6 +82,7 @@ void deleteProfile() {
 
         std::cout << "\nYour account has been deleted successfully!" << std::endl;
 
+		// Clear the credentials
         credentials::username.clear();
         credentials::password.clear();
         credentials::email.clear();

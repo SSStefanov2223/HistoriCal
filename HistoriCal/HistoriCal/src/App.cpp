@@ -4,8 +4,10 @@ void App() {
 	char choice;
 	std::string registerText = "[R] Register / [L] Log In";
 	const int consoleWidth = 105;
-	int registerTextSpace	 = (consoleWidth - registerText.length()) / 2;
+	int registerTextSpace = (consoleWidth - registerText.length()) / 2; //Adds spaces to the left of the text
 	std::string choiceText(registerTextSpace, ' ');
+
+	//Const char* logo = R"( is used to create a raw string literal
 	const char* logo = R"(
  __          __  _                            _           _    _ _     _             _  _____      _ _ 
  \ \        / / | |                          | |         | |  | (_)   | |           (_)/ ____|    | | |

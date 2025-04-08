@@ -1,5 +1,6 @@
 #include "../include/register.h"
 
+//Checks if the password is valid
 bool checkPassword(std::string password)
 {
     bool checkSize = false;
@@ -28,6 +29,7 @@ bool checkPassword(std::string password)
         return false;
 }
 
+//Checks if the username is valid
 bool checkUsername(const std::string& username) {
     // Check if the username is non-empty and does not contain spaces
     bool checkSize = !username.empty();
@@ -36,6 +38,7 @@ bool checkUsername(const std::string& username) {
     return checkSize && checkSpaces;
 }
 
+//Checks if the email is valid
 bool checkEmail(const std::string& email) {
     // Check if the email is non-empty and does not contain spaces
     bool checkSize = !email.empty();
@@ -63,6 +66,7 @@ bool checkEmail(const std::string& email) {
     return checkSize && checkSpaces && checkAt && checkBandA && checkDot;
 }
 
+//Checks if all credentials are valid
 bool checkValidity(const std::string& username, const std::string& email, const std::string& password) {
     // Check if all credentials are valid
     bool check = false;
@@ -70,6 +74,7 @@ bool checkValidity(const std::string& username, const std::string& email, const 
     return check;
 }
 
+//Creates a line to be written in the file
 std::string createFileLine(std::string& username, std::string& email, std::string& password)
 {
     // Input all credentials in the file
